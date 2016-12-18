@@ -5,3 +5,5 @@ Makefile*
 *.user
 *.o
 *.exe
+*.a
+*.dll
