@@ -2,11 +2,13 @@
 
 #include <vector>
 
-struct Tensor3 {
+class Tensor3 {
+public:
     int sx, sy, depth;
     std::vector<double> w, dw;
 
 public:
+    Tensor3();
     Tensor3(int sx, int sy, int depth);
     Tensor3(const std::vector<double> &w);
 

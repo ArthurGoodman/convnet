@@ -4,8 +4,14 @@ CONFIG -= app_bundle qt
 
 HEADERS += \
     tensor3.h \
-    util.h
+    util.h \
+    ilayer.h \
+    alosslayer.h \
+    tanhlayer.h
 
 SOURCES += \
     tensor3.cpp \
-    util.cpp
+    util.cpp \
+    ilayer.cpp \
+    alosslayer.cpp \
+    tanhlayer.cpp

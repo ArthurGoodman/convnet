@@ -4,6 +4,10 @@
 
 #include "util.h"
 
+Tensor3::Tensor3()
+    : sx(0), sy(0), depth(0) {
+}
+
 Tensor3::Tensor3(int sx, int sy, int depth)
     : sx(sx), sy(sy), depth(depth) {
     int n = sx * sy * depth;
