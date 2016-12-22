@@ -40,6 +40,3 @@ void SoftmaxLayer::backward() {
 
     loss = -log(es[y]);
 }
-
-void SoftmaxLayer::getParamsAndGrads(std::vector<Tensor3 *> &) {
-}

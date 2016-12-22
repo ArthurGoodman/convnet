@@ -8,5 +8,4 @@ public:
 
     void forward();
     void backward();
-    void getParamsAndGrads(std::vector<Tensor3 *> &params);
 };

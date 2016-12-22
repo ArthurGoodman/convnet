@@ -9,7 +9,9 @@ HEADERS += \
     alosslayer.h \
     tanhlayer.h \
     fullyconnectedlayer.h \
-    softmaxlayer.h
+    softmaxlayer.h \
+    network.h \
+    trainer.h
 
 SOURCES += \
     tensor3.cpp \
@@ -18,4 +20,6 @@ SOURCES += \
     alosslayer.cpp \
     tanhlayer.cpp \
     fullyconnectedlayer.cpp \
-    softmaxlayer.cpp
+    softmaxlayer.cpp \
+    network.cpp \
+    trainer.cpp

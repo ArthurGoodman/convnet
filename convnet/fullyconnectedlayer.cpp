@@ -39,9 +39,16 @@ void FullyConnectedLayer::backward() {
     }
 }
 
-void FullyConnectedLayer::getParamsAndGrads(std::vector<Tensor3 *> &params) {
+void FullyConnectedLayer::getParamsAndGrads(std::vector<ParamsAndGrads> &pglist) {
     for (int i = 0; i < out_depth; i++)
-        params.push_back(&filters[i]);
+        pglist.push_back({&filters[i], 1.0});
 
-    params.push_back(&biases);
+    pglist.push_back({&biases, 0.0});
+}
+
+void FullyConnectedLayer::init() {
+    for (int i = 0; i < out_depth; i++)
+        filters[i].init();
+
+    biases.init();
 }

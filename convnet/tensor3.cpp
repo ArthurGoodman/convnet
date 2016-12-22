@@ -15,12 +15,7 @@ Tensor3::Tensor3(int sx, int sy, int depth)
     w.resize(n);
     dw.resize(n);
 
-    double scale = sqrt(1.0 / n);
-
-    for (int i = 0; i < n; i++)
-        w[i] = gaussRandom(0.0, scale);
-
-    std::fill_n(dw.data(), n, 0.0);
+    init();
 }
 
 Tensor3::Tensor3(int sx, int sy, int depth, double value)
@@ -34,8 +29,11 @@ Tensor3::Tensor3(int sx, int sy, int depth, double value)
     std::fill_n(dw.data(), n, 0.0);
 }
 
-Tensor3::Tensor3(const std::vector<double> &w)
-    : sx(1), sy(1), depth(w.size()), w(w), dw(w.size()) {
+Tensor3::Tensor3(const std::initializer_list<double> &list)
+    : sx(1), sy(1), depth(list.size()), w(list.size()), dw(list.size()) {
+    int c = 0;
+    for (std::initializer_list<double>::const_iterator i = list.begin(); i != list.end(); ++i)
+        w[c++] = *i;
 }
 
 Tensor3::Tensor3(const Tensor3 &t) {
@@ -50,7 +48,9 @@ Tensor3 &Tensor3::operator=(const Tensor3 &t) {
     sx = t.sx;
     sy = t.sy;
     depth = t.depth;
+
     w = t.w;
+    dw = t.dw;
 
     return *this;
 }
@@ -59,7 +59,20 @@ Tensor3 &Tensor3::operator=(Tensor3 &&t) {
     sx = t.sx;
     sy = t.sy;
     depth = t.depth;
+
     w = std::move(t.w);
+    dw = std::move(t.dw);
 
     return *this;
+}
+
+void Tensor3::init() {
+    int n = sx * sy * depth;
+
+    double scale = sqrt(1.0 / n);
+
+    for (int i = 0; i < n; i++)
+        w[i] = gaussRandom(0.0, scale);
+
+    std::fill_n(dw.data(), n, 0.0);
 }
