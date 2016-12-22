@@ -23,6 +23,17 @@ Tensor3::Tensor3(int sx, int sy, int depth)
     std::fill_n(dw.data(), n, 0.0);
 }
 
+Tensor3::Tensor3(int sx, int sy, int depth, double value)
+    : sx(sx), sy(sy), depth(depth) {
+    int n = sx * sy * depth;
+
+    w.resize(n);
+    dw.resize(n);
+
+    std::fill_n(w.data(), n, value);
+    std::fill_n(dw.data(), n, 0.0);
+}
+
 Tensor3::Tensor3(const std::vector<double> &w)
     : sx(1), sy(1), depth(w.size()), w(w), dw(w.size()) {
 }

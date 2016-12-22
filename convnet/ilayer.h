@@ -13,4 +13,5 @@ public:
 
     virtual void forward() = 0;
     virtual void backward() = 0;
+    virtual void getParamsAndGrads(std::vector<Tensor3 *> &params) = 0;
 };

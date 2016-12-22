@@ -7,11 +7,15 @@ HEADERS += \
     util.h \
     ilayer.h \
     alosslayer.h \
-    tanhlayer.h
+    tanhlayer.h \
+    fullyconnectedlayer.h \
+    softmaxlayer.h
 
 SOURCES += \
     tensor3.cpp \
     util.cpp \
     ilayer.cpp \
     alosslayer.cpp \
-    tanhlayer.cpp
+    tanhlayer.cpp \
+    fullyconnectedlayer.cpp \
+    softmaxlayer.cpp

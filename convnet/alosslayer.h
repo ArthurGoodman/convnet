@@ -5,6 +5,6 @@
 
 class ALossLayer : public ILayer {
 public:
-    std::vector<double> y;
+    int y;
     double loss;
 };

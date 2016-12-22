@@ -10,6 +10,7 @@ public:
 public:
     Tensor3();
     Tensor3(int sx, int sy, int depth);
+    Tensor3(int sx, int sy, int depth, double value);
     Tensor3(const std::vector<double> &w);
 
     Tensor3(const Tensor3 &t);
